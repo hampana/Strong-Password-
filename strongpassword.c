@@ -22,10 +22,10 @@ void randomize ( char arr[], int n )
 int main()
 {
     srand((unsigned int)(time(0)));
-    int n, i, cp, sm,sc, count = 0, sp;
-    char  capletters[100],smallletters[100];
+    int n, i, cp, sm,sc, count = 0, sp,total;
+    char  capletters[1000],smallletters[1000];
     char spcl[]={',','!','@','#','$','%','^','&','*','(',')','_','-',']','[','{','}',':',';','<','>','.'};
-    int numbers[100];
+    int numbers[1000];
 
     printf("Enter the number of digits in the password : ");
     scanf("%d", &n);
@@ -38,7 +38,6 @@ int main()
 
     printf("enter the number of special characters in the password : ");
     scanf("%d",&sc);
-
     for(i=0;i<n;i++)
     {
         numbers[i] = (rand() % 10);
@@ -64,22 +63,21 @@ int main()
         password[count]=spcl[sp];
         count++;
     }
-    if(count<=8)
+     if(count<=8)
     {
-      printf("\t** length of the password must be greater than 8 **\n");
+      printf("\t\n** LENGTH OF THE PASSWORD SHOULD BE GREATER THAN 8 **\n\n\t Length you have entered: %d \n",count);
     }
-
-    else if(count>1000)
+    else if(count>8 && count < 1000)
     {
-      printf("\t** length of the password must be less than 1000 **\n");
+       password[count] = '\0';
+
+       printf("\t\n\tGenerated password:  %s\n",password);
+       randomize(password, count);
+       printf("\t\n\tStrong password:  %s\n,\t\n\t Length of your password is :  %d", password,count);
     }
-    else
+    else if (count>1000)
     {
-    password[count] = '\0';
-
-    printf("\tgenerated password:  %s\n",password);
-    randomize(password, count);
-    printf("\tstrong password:  %s\n", password);
+      printf("\t\n **LENGTH OF THE PASSWORD SHOULD BE LESS THEN  1000 **\n\n\t Length you have entered: %d \n",count);
+    }
     return 0;
-  }
 }
