@@ -77,7 +77,7 @@ int main()
     }
     else if (count>1000)
     {
-      printf("\t\n **LENGTH OF THE PASSWORD SHOULD BE LESS THEN  1000 **\n\n\t Length you have entered: %d \n",count);
+      printf("\t\n **LENGTH OF THE PASSWORD SHOULD BE LESS THEN  1000 **\n\n\ts Length you have entered: %d \n",count);
     }
     return 0;
 }
