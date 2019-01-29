@@ -23,7 +23,7 @@ int main()
 {
     srand((unsigned int)(time(0)));
     int n, i, cp, sm,sc, count = 0, sp;
-    char pass[12], capletters[100],smallletters[100];
+    char  capletters[100],smallletters[100];
     char spcl[]={',','!','@','#','$','%','^','&','*','(',')','_','-',']','[','{','}',':',';','<','>','.'};
     int numbers[100];
 
@@ -60,13 +60,18 @@ int main()
     }
     for(i=0;i<sc;i++)
     {
-        sp = (rand() % 21);
+        sp = (rand() % 22);
         password[count]=spcl[sp];
         count++;
     }
     if(count<=8)
     {
-      printf("\t**length of the password must be greater than 8**\n");
+      printf("\t** length of the password must be greater than 8 **\n");
+    }
+
+    else if(count>1000)
+    {
+      printf("\t** length of the password must be less than 1000 **\n");
     }
     else
     {
